@@ -1,3 +1,4 @@
+# Simulation
 import tkinter as tk
 import time
 from random import randrange
@@ -52,10 +53,11 @@ def simulate():
 	d = float(delai.get())
 	s = int(steps.get())
 
-	i = 0
+	w, h = canvas.winfo_width(), canvas.winfo_height()
 
-	x, y = canvas.winfo_width()//2, canvas.winfo_height()//2
+	x, y = h//2, w//2
 	direction = 0
+	i = 0
 
 	running = True
 	while i<s and running:
@@ -71,8 +73,8 @@ def simulate():
 			case 3:
 				y-=step_size
 
-		if x<0 or y<0 or x>WIDTH or y>WIDTH:
-			x, y = canvas.winfo_width()//2, canvas.winfo_height()//2
+		if x<0 or y<0 or x>w or y>h:
+			x, y = w//2, h//2
 			direction=0
 
 		i+=1
@@ -84,7 +86,9 @@ def simulate():
 		if p:
 			if i<50000 or (i<100000 and i%1000==0) or (i<300000 and i%10000==0):
 				screen.update()
+				w, h = canvas.winfo_width(), canvas.winfo_height()
 		else:
+			w, h = canvas.winfo_width(), canvas.winfo_height()
 			screen.update()
 		time.sleep(d)
 	print("Simulation ended! reached step:", i, "out of", s)
@@ -102,7 +106,8 @@ def reset():
 
 def update_step_size():
 	global step_size
-	if not running:
+	if not running and step_size != int(stepSizeSpinBox.get()):
+		reset()
 		step_size = int(stepSizeSpinBox.get())
 
 def on_canvas_click(event):
@@ -117,8 +122,9 @@ def on_canvas_click(event):
 
 def noise():
 	reset()
+	w, h = canvas.winfo_width(), canvas.winfo_height()
 	for i in range(100//step_size-2):
-		x, y = randrange(0, WIDTH), randrange(0, WIDTH)
+		x, y = randrange(100, w-100), randrange(100, h-100)
 		x, y = (x//step_size)*step_size, (y//step_size)*step_size
 		flip_to_black(x, y)
 
