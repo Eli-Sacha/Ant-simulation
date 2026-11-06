@@ -7,7 +7,7 @@ The ant simulation, in python (using tkinter) with option for random start patte
 git clone https://github.com/Eli-Sacha/Ant-simulation.git
 ```
 
-Just make sure you have python installed, with the following libraries: 
+Just make sure you have python installed (they should already be installed along with python), with the following libraries:
   - tkinter
   - time
   - random
@@ -15,20 +15,20 @@ Just make sure you have python installed, with the following libraries:
 # How to use it:
 
 ```bash
-python main.py #or whatever name you gave to your python executable
+python main.py #or whatever name you gave to your python executable / binary
 ```
 
 The interface is divided into two parts: on the left is a canvas where the simulation takes place, and on the right are the controls and settings.
 
 Controls (buttons):
-  - Start simulation
-  - Stop simulation
+  - Start simulation: Starts the simulation (the ant starts on the middle of the canva, looking right)
+  - Stop simulation: Stops the simulation but doesn't clear
   - Reset simulation: Stops the simulation and clears the canvas
   - Generate random: Generates 100 random black tiles
 
 Settings:
   - Amount of steps (range using buttons: 10 -> 10 000 000): Change the amount of steps 
-  - Delay (range using buttons: 0 -> 1): 
+  - Delay (range using buttons: 0 -> 1): Changes the delay between each step (default is 0: no delay)
   - Tile size (from 3 to 20): changes the size of the tile.
   - Performance mode: Toggles on/off the performance mode
 
