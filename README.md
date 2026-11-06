@@ -37,6 +37,8 @@ When the ant reaches the border of the canva, it will teleport to the spawn (use
 When you change the tile size, it reset the simulation (you can disable that feature by commenting line 110)
 The same behaviour exists for random generation, you can disable it by commenting line 124.
 
+If you ant a specific starting pattern, you can click on the canvas and it will flip the closest tile.
+
 # What is the performance mode ?
 
 Due to tkinter limitations (each black tile is stored in a list), the steps you do, the more the simulations slows down because there is too many black tiles. So each screen update takes more and more time to render. What performance mode does is that on passing a certain amount of steps, it will no longer update the screen on every steps and will only update every 1 000 then 10 000 steps. The simulation is a little bit faster but you don't see it live anymore.
