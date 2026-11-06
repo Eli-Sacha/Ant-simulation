@@ -1,4 +1,3 @@
-# Simulation
 import tkinter as tk
 import time
 from random import randrange
@@ -18,14 +17,11 @@ step_size: int = 3
 p = False
 
 def get_color_at(x, y):
-	# Trouve les identifiants des objets qui recouvrent le point (x, y)
 	ids = canvas.find_overlapping(x, y, x+step_size, y+step_size)
 	if ids:
-		# On prend le dernier élément (le plus au premier plan)
 		color = canvas.itemcget(ids[-1], "fill")
 		return color
 	else:
-		# S'il n'y a rien, on retourne la couleur de fond du canvas
 		return canvas.cget("bg")
 
 def flip_to_white(x, y):
